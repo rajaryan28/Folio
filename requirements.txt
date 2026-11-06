@@ -1,0 +1,12 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+sqlalchemy[asyncio]>=2.0.30
+asyncpg>=0.29
+pgvector>=0.3.2
+pydantic-settings>=2.4
+langchain-core>=0.3,<2
+langchain-openai>=0.3,<2
+langchain-text-splitters>=0.3,<2
+tiktoken>=0.7
+pypdf>=4.3

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Folio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232A3FB8'/%3E%3Cpath d='M12 24V9h9M12 16h7' stroke='%23fff' stroke-width='2.6' fill='none' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="app" id="app" data-rail="closed" data-panel="closed">
+
+  <aside class="rail" id="rail" aria-label="Library">
+    <div class="rail-top">
+      <span class="wordmark">Folio</span>
+      <button class="text-btn" id="newChat" type="button">New conversation</button>
+    </div>
+
+    <div class="library-head">
+      <h2>Library</h2>
+      <button class="text-btn accent" id="addBtn" type="button">Add files</button>
+    </div>
+    <input id="fileInput" type="file" multiple hidden
+           accept=".pdf,.txt,.md,.markdown,application/pdf,text/plain,text/markdown">
+
+    <ul class="docs" id="docList"></ul>
+    <p class="rail-empty" id="railEmpty" hidden>
+      Nothing here yet. Drop a PDF, Markdown or text file anywhere on this page.
+    </p>
+  </aside>
+
+  <div class="scrim" id="scrim"></div>
+
+  <main class="stage">
+    <header class="topbar">
+      <button class="text-btn" id="railToggle" type="button" aria-controls="rail" aria-expanded="false">Library</button>
+      <span class="wordmark small">Folio</span>
+    </header>
+
+    <div class="scroller" id="scroller">
+      <div class="thread" id="thread">
+        <section class="hello" id="hello">
+          <h2>What would you like to look up?</h2>
+          <p id="helloText"></p>
+        </section>
+      </div>
+    </div>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <div class="composer-box">
+        <textarea id="input" rows="1" placeholder="Ask about your documents"
+                  aria-label="Your question" enterkeyhint="send"></textarea>
+        <button id="send" class="send" type="submit">Ask</button>
+      </div>
+      <p class="composer-note" id="scopeNote"></p>
+    </form>
+  </main>
+
+  <aside class="passage" id="passage" aria-label="Source passage" aria-hidden="true">
+    <div class="passage-inner">
+      <header class="passage-head">
+        <div class="passage-title">
+          <h2 id="pName"></h2>
+          <p id="pMeta"></p>
+        </div>
+        <button class="icon-btn" id="pClose" type="button" aria-label="Close passage">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+        </button>
+      </header>
+      <div class="passage-body" id="pBody">
+        <p class="claim" id="pClaim" hidden></p>
+        <blockquote class="passage-text" id="pText"></blockquote>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="veil" id="veil" aria-hidden="true">
+  <p class="veil-title">Drop to add to your library</p>
+  <p class="veil-sub">PDF, Markdown or plain text</p>
+</div>
+
+<script src="/static/app.js" defer></script>
+</body>
+</html>
